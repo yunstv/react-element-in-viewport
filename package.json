@@ -1,6 +1,6 @@
 {
   "name": "react-element-in-viewport",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "typings": "dist/index.d.ts",
   "author": "yunstv <yunsvt@163.com> (https://yunstv.github.io)",
   "license": "ISC",
@@ -14,10 +14,17 @@
     "dist"
   ],
   "main": "dist/react-element-in-viewport.js",
+  "module": "dist/react-element-in-viewport.esm.mjs",
+  "umd:main": "dist/react-element-in-viewport.umd.js",
+  "unpkg": "dist/react-element-in-viewport.umd.js",
   "source": "src/index.ts",
   "scripts": {
     "start": "cd example && npm run start",
+    "test": "jest",
+    "test:coverage": "yarn test --coverage",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "prettier": "prettier --write src",
+    "prettier-scss": "prettier --write scss",
     "sass": "sass scss/main.scss dist/ReactElementInViewport.css",
     "style": "npm run sass && cssnano dist/ReactElementInViewport.css dist/ReactElementInViewport.min.css --no-zindex --no-reduceIdents && npm run style-injector",
     "style-injector": "style2js --out-dir dist dist/ReactElementInViewport.min.css",
@@ -27,7 +34,11 @@
     "rm-pkg": "rimraf node_modules/react-element-in-viewport && mkdir -p node_modules/react-element-in-viewport",
     "extract-pkg": "tar xzvf react-element-in-viewport.tgz -C node_modules/react-element-in-viewport --strip-components 1 && rimraf react-element-in-viewport.tgz",
     "clean": "rimraf dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup": "npm run clean && npm run build && npm run pack-and-extract"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
   },
   "engines": {
     "node": ">=14.0.0",
@@ -40,13 +51,30 @@
     "trailingComma": "none",
     "arrowParens": "avoid"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunstv/react-element-in-viewport.git"
+  },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.6",
     "@babel/core": "^7.12.0",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
     "cssnano": "^6.0.1",
     "cssnano-cli": "^1.0.5",
     "microbundle": "^0.15.1",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-jasmine2": "^29.7.0",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "prettier": "^3.0.3",
@@ -55,6 +83,33 @@
     "rimraf": "^5.0.5",
     "sass": "^1.69.4",
     "style2js": "^1.0.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "ts-jest": "^29.1.1",
+    "tslib": "^2.6.2"
+    
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/react-element-in-viewport.js",
+      "import": "./dist/react-element-in-viewport.esm.mjs",
+      "umd": "./dist/react-element-in-viewport.umd.js"
+    },
+    "./dist/ReactElementInViewport.min.css": "./dist/ReactElementInViewport.min.css",
+    "./dist/ReactElementInViewport.css": "./dist/ReactElementInViewport.css",
+    "./ReactElementInViewport.min.css": "./dist/ReactElementInViewport.min.css",
+    "./ReactElementInViewport.css": "./dist/ReactElementInViewport.css",
+    "./dist/inject-style": {
+      "types": "./dist/inject-style.d.ts",
+      "require": "./dist/inject-style.js",
+      "import": "./dist/inject-style.esm.mjs"
+    },
+    "./inject-style": {
+      "types": "./dist/inject-style.d.ts",
+      "require": "./dist/inject-style.js",
+      "import": "./dist/inject-style.esm.mjs"
+    },
+    "./package.json": "./package.json",
+    "./scss/": "./scss/"
   }
 }
