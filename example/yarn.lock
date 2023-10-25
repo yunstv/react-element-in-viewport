@@ -1703,6 +1703,11 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
+react-element-in-viewport@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/react-element-in-viewport/-/react-element-in-viewport-1.0.7.tgz#2963c61dc2533031ff7c1ee62e587eb59bf8f8f7"
+  integrity sha512-w7w3QBr/ik3sVoet+1PNVmD+IjLigVfiZxbvntUi5QjGe2qHvWvVce1D3k2REs/mRoo7n0TXic4/o9vJKT/7SA==
+
 react-error-overlay@6.0.9:
   version "6.0.9"
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.9.tgz#3c743010c9359608c375ecd6bc76f35d93995b0a"

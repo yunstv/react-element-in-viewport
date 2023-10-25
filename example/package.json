@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "react-element-in-viewport-example",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,11 +10,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "react-element-in-viewport": "^1.0.7",
     "styled-components": "^6.1.0"
   },
   "alias": {
-    "react": "../node_modules/react",
-    "react-dom": "../node_modules/react-dom"
+    "react": "react",
+    "react-dom": "react-dom"
   },
   "author": "",
   "license": "ISC",
