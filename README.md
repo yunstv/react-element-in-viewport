@@ -1,5 +1,5 @@
 # React-element-in-viewport
-- 监听元素是否再可视区域
+- 监听元素是否正可视区域
 - 继承 animate.css 制定不同动画效果
 
 🎉 使用React-element-in-viewport让你的块级元素在用户可视范围内,有定制化的入场动画效果!
@@ -32,9 +32,21 @@ yarn add react-element-in-viewport
   function App(){
     return (
       <div >
-        <ElementInViewport animation={'bounce'} />
-        <ElementInViewport animation={'flash'} />
-        <ElementInViewport animation={'pulse'} />
+        <ElementInViewport animation={'bounce'}>
+          <div>
+            animation bounce
+          </div>
+        </ElementInViewport>
+        <ElementInViewport animation={'flash'}>
+          <div>
+            animation flash
+          </div>
+        </ElementInViewport>
+        <ElementInViewport animation={'pulse'}>
+          <div>
+            animation pulse
+          </div>
+        </ElementInViewport>
         {/* {...} */}
       </div>
     );
