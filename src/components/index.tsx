@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import * as React from 'react';
 import type { FC } from 'react';
 import { elementObserver, animateCSS } from '../utils';
 import type { ElementInViewportProps } from '../types';
@@ -9,8 +9,9 @@ export const ElementInViewport: FC<ElementInViewportProps> = ({
   className,
   children
 }) => {
-  const viewRef = useRef(null);
-  useEffect(() => {
+  const viewRef = React.useRef(null);
+
+  React.useEffect(() => {
     if (!viewRef.current) return;
     const observeCallback = (element: HTMLElement, unobserve: any) => {
       animateCSS(element, animation).then(() => {
