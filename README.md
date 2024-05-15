@@ -25,9 +25,9 @@ yarn add react-element-in-viewport
   import React from 'react';
 
   import { ElementInViewport } from 'react-element-in-viewport';
-  import 'react-element-in-viewport/dist/dist/ReactElementInViewport.css';
+  import 'react-element-in-viewport/dist/ReactElementInViewport.css';
   // or
-  // import 'react-element-in-viewport/dist/dist/ReactElementInViewport.min.css';
+  // import 'react-element-in-viewport/dist/ReactElementInViewport.min.css';
   
   function App(){
     return (
