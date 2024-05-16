@@ -98,6 +98,55 @@ export const animateStyles: AnimateStyles[] = [
       //   title: 'bounce[闪光]'
       // }
     ]
+  },
+  {
+    title: 'Attention seekers[寻求关注的人]',
+    children: [
+      {
+        animationName: 'bounce',
+        title: 'bounce[闪光]'
+      },
+      {
+        animationName: 'bounce',
+        title: 'bounce[闪光]'
+      }
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // },
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // },
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // },
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // },
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // },
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // },
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // },
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // },
+      // {
+      //   animationName: 'bounce',
+      //   title: 'bounce[闪光]'
+      // }
+    ]
   }
 ];
 
