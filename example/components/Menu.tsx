@@ -58,7 +58,13 @@ export const MenuItem: React.FC<MenuItemProps> = ({ title, data }) => {
       <Styled.ItemContainer>
         {data &&
           Array.from(data, (item, index) => (
-            <Styled.Wrap key={React.useId()} animation={item.animationName}>
+            <Styled.Wrap
+              key={React.useId()}
+              animation={item.animationName}
+              observeOptions={{
+                '--animate-delay': '10s'
+              }}
+            >
               <BGWrap background={`${colors[sumRandom(COLOR_Length, 0)]}`}>
                 <div>
                   <h1>
