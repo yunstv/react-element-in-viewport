@@ -1,6 +1,10 @@
 import type { ElementObserver } from '../types';
 
-export const elementObserver: ElementObserver = (element, callback) => {
+export const elementObserver: ElementObserver = (
+  element,
+  callback,
+  option = {}
+) => {
   const options = {
     root: null,
     rootMargin: '0px',
@@ -8,14 +12,17 @@ export const elementObserver: ElementObserver = (element, callback) => {
   };
   const styleOptions = {
     opacity: '1',
-    '--animate-duration': '2s'
+    '--animate-duration': '2s',
+    ...option
   };
   const exclude = ['opacity'];
 
   const setStyle = (element: HTMLElement, event = 'add') => {
     Object.entries(styleOptions).forEach(([sKey, sValue]) => {
       if (event === 'remove') {
-        if (!exclude.includes(sKey)) return element.style.removeProperty(sKey);
+        if (Object.keys(option).includes(sKey) || exclude.includes(sKey))
+          return;
+        return element.style.removeProperty(sKey);
       }
       element.style.setProperty(sKey, sValue);
     });

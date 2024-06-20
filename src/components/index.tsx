@@ -9,6 +9,7 @@ export const ElementInViewport: FC<ElementInViewportProps> = ({
   className,
   children,
   isWrap = true,
+  observeOptions = {},
   ...props
 }) => {
   const viewRef = React.useRef(null);
@@ -21,12 +22,16 @@ export const ElementInViewport: FC<ElementInViewportProps> = ({
         setAnimateEnd(true);
       });
     };
-    const observe = elementObserver(viewRef.current, observeCallback);
+    const observe = elementObserver(
+      viewRef.current,
+      observeCallback,
+      observeOptions
+    );
     observe.start();
     return () => {
       observe.end();
     };
-  }, [animation]);
+  }, [animation, observeOptions]);
   if (!isWrap && animateEnd) return children;
   return (
     <div ref={viewRef} className={className} {...props}>
