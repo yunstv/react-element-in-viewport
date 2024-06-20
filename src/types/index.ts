@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { HTMLAttributes } from 'react';
 
 export type Theme = 'light' | 'dark' | 'colored';
 
@@ -14,7 +14,8 @@ export type ElementObserver = (
   end: ElementObserverStart;
 };
 
-export type ElementInViewportProps = {
+export interface ElementInViewportProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   animation?: string;
-} & PropsWithChildren;
+  isWrap?: boolean;
+}

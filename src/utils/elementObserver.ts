@@ -10,11 +10,12 @@ export const elementObserver: ElementObserver = (element, callback) => {
     opacity: '1',
     '--animate-duration': '2s'
   };
+  const exclude = ['opacity'];
 
   const setStyle = (element: HTMLElement, event = 'add') => {
     Object.entries(styleOptions).forEach(([sKey, sValue]) => {
       if (event === 'remove') {
-        return element.style.removeProperty(sKey);
+        if (!exclude.includes(sKey)) return element.style.removeProperty(sKey);
       }
       element.style.setProperty(sKey, sValue);
     });

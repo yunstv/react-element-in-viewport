@@ -7,15 +7,18 @@ import type { ElementInViewportProps } from '../types';
 export const ElementInViewport: FC<ElementInViewportProps> = ({
   animation = 'fadeInDown',
   className,
-  children
+  children,
+  isWrap = true,
+  ...props
 }) => {
   const viewRef = React.useRef(null);
-
+  const [animateEnd, setAnimateEnd] = React.useState<Boolean>(false);
   React.useEffect(() => {
     if (!viewRef.current) return;
     const observeCallback = (element: HTMLElement, unobserve: any) => {
       animateCSS(element, animation).then(() => {
         unobserve && unobserve();
+        setAnimateEnd(true);
       });
     };
     const observe = elementObserver(viewRef.current, observeCallback);
@@ -23,10 +26,10 @@ export const ElementInViewport: FC<ElementInViewportProps> = ({
     return () => {
       observe.end();
     };
-  }, []);
-
+  }, [animation]);
+  if (!isWrap && animateEnd) return children;
   return (
-    <div ref={viewRef} className={className}>
+    <div ref={viewRef} className={className} {...props}>
       {children}
     </div>
   );
