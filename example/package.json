@@ -5,7 +5,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": "index.html",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --no-hmr",
     "build": "parcel build index.html --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +13,7 @@
     "react": "^18.3.1",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^18.3.1",
-    "react-element-in-viewport": "^1.0.7",
+    "react-element-in-viewport": "^1.0.8",
     "styled-components": "^6.1.0"
   },
   "alias": {
