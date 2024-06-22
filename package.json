@@ -1,6 +1,6 @@
 {
   "name": "react-element-in-viewport",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "typings": "dist/index.d.ts",
   "author": "yunstv <yunsvt@163.com> (https://yunstv.github.io)",
   "license": "ISC",
