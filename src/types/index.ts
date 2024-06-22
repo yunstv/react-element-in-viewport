@@ -17,12 +17,12 @@ export type ElementObserver = (
   end: ElementObserverStart;
 };
 
-type Children = (isIntersecting: boolean) => React.ReactNode | React.ReactNode;
+type Children = (isIntersecting: boolean) => React.ReactNode;
 export interface ElementInViewportProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   className?: string;
   animation?: string;
   isWrap?: boolean;
   observeOptions?: ObserveOptions;
-  children: Children;
+  children: React.ReactNode | Children;
 }
