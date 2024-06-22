@@ -12,10 +12,12 @@ export const ElementInViewport: FC<ElementInViewportProps> = ({
   observeOptions = {},
   ...props
 }) => {
+  const [isIntersecting, setIsIntersecting] = React.useState(false);
   const viewRef = React.useRef(null);
   React.useEffect(() => {
     if (!viewRef.current) return;
     const observeCallback = (element: HTMLElement, unobserve: any) => {
+      setIsIntersecting(true);
       animateCSS(element, animation).then(() => {
         unobserve && unobserve();
       });
@@ -32,7 +34,7 @@ export const ElementInViewport: FC<ElementInViewportProps> = ({
   }, [animation, observeOptions]);
   return (
     <div ref={viewRef} className={className} {...props}>
-      {children}
+      {typeof children === 'function' ? children(isIntersecting) : children}
     </div>
   );
 };

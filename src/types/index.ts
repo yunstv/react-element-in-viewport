@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'react';
+import React from 'react';
 
 export type Theme = 'light' | 'dark' | 'colored';
 
@@ -16,9 +17,12 @@ export type ElementObserver = (
   end: ElementObserverStart;
 };
 
-export interface ElementInViewportProps extends HTMLAttributes<HTMLDivElement> {
+type Children = (isIntersecting: boolean) => React.ReactNode | React.ReactNode;
+export interface ElementInViewportProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   className?: string;
   animation?: string;
   isWrap?: boolean;
   observeOptions?: ObserveOptions;
+  children: Children;
 }
