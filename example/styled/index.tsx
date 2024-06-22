@@ -2,6 +2,8 @@ import * as React from 'react';
 import { styled, css } from 'styled-components';
 // import { ElementInViewport } from '../../src';
 import { ElementInViewport } from 'react-element-in-viewport';
+
+type Children = (isIntersecting: boolean) => React.ReactNode | React.ReactNode;
 export namespace Styled {
   export const Container = styled('main')`
     width: 100%;
@@ -66,7 +68,10 @@ export namespace Styled {
     gap: 10px;
   `;
 
-  export const Wrap = styled(ElementInViewport)<{ colorIndex?: number }>`
+  export const Wrap = styled(ElementInViewport)<{
+    colorIndex?: number;
+    children: Children;
+  }>`
     height: calc(100vw / 3);
     width: auto;
     flex: 1;

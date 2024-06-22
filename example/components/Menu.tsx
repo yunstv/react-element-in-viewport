@@ -59,17 +59,21 @@ export const MenuItem: React.FC<MenuItemProps> = ({ title, data }) => {
         {data &&
           Array.from(data, (item, index) => (
             <Styled.Wrap key={React.useId()} animation={item.animationName}>
-              <div>
-                <BGWrap background={`${colors[sumRandom(COLOR_Length, 0)]}`}>
-                  <div>
-                    <h1>
-                      {`${index + 1}. `}
-                      {item.title}
-                    </h1>
-                    <h2>animation: {item.animationName}</h2>
-                  </div>
-                </BGWrap>
-              </div>
+              {isIntersecting =>
+                isIntersecting ? (
+                  <BGWrap background={`${colors[sumRandom(COLOR_Length, 0)]}`}>
+                    <div>
+                      <h1>
+                        {`${index + 1}. `}
+                        {item.title}
+                      </h1>
+                      <h2>animation: {item.animationName}</h2>
+                    </div>
+                  </BGWrap>
+                ) : (
+                  <>null</>
+                )
+              }
             </Styled.Wrap>
           ))}
       </Styled.ItemContainer>
