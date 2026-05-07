@@ -1,19 +1,11 @@
 import * as React from 'react';
 import '../../scss/main.scss';
-import { Styled } from '../styled';
-import ReactAnimate from './Animate';
+import AnimationGallery from './AnimationGallery';
 
 export const App = () => {
   return (
-    <>
-      <Styled.Container>
-        <Styled.Header>
-          <h1>Element-in-viewport DOC</h1>
-        </Styled.Header>
-      </Styled.Container>
-      <Styled.Container>
-        <ReactAnimate />
-      </Styled.Container>
-    </>
+    <div className="w-screen min-h-screen bg-neutral-950 p-1.5">
+      <AnimationGallery />
+    </div>
   );
 };
