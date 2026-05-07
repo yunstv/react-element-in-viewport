@@ -26,7 +26,7 @@ export const AnimationGrid: React.FC<{ data: AnimateStyles[] }> = ({
 
   return (
     <>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-1.5 w-full">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-0 w-full">
         {items.map((item, index) => (
           <GalleryTile
             key={`${item.animationName}-${index}`}
