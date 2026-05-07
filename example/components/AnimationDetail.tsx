@@ -1,19 +1,10 @@
 import * as React from 'react';
 import { useKeyframes } from '../hooks/useKeyframes';
+import { stageBackdrop } from '../styles/backdrops';
 import { CodeBlock } from './CodeBlock';
 import { DetailCarousel } from './DetailCarousel';
 import { DetailDemo } from './DetailDemo';
 import { DetailNavButton } from './DetailNavButton';
-
-const PANEL_BG: React.CSSProperties = {
-  backgroundColor: '#14012b',
-  backgroundImage: [
-    'radial-gradient(120% 90% at 0% 0%, #ff006e 0%, transparent 55%)',
-    'radial-gradient(110% 90% at 100% 0%, #ffbe0b 0%, transparent 55%)',
-    'radial-gradient(120% 90% at 100% 100%, #00f5d4 0%, transparent 55%)',
-    'radial-gradient(120% 90% at 0% 100%, #8338ec 0%, transparent 55%)'
-  ].join(',')
-};
 
 const buildUsageCode = (name: string) =>
   `import { ElementInViewport } from 'react-element-in-viewport';\n\n<ElementInViewport animation="${name}">\n  <div>your content</div>\n</ElementInViewport>`;
@@ -103,7 +94,7 @@ export const AnimationDetail: React.FC<{
         <div
           onClick={e => e.stopPropagation()}
           className="relative w-[50vw] h-[50vh] min-w-140 min-h-115 rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.08)] overflow-hidden flex flex-col text-white"
-          style={PANEL_BG}
+          style={stageBackdrop}
         >
           <DetailHeader
             name={name}
