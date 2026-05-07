@@ -53,12 +53,12 @@ export const DetailCarousel: React.FC<{
       onClick={e => e.stopPropagation()}
       ref={containerRef}
       className="w-[min(80vw,1080px)] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      style={{
-        maskImage:
-          'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
-        WebkitMaskImage:
-          'linear-gradient(to right, transparent, black 6%, black 94%, transparent)'
-      }}
+      // style={{
+      //   maskImage:
+      //     'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
+      //   WebkitMaskImage:
+      //     'linear-gradient(to right, transparent, black 6%, black 94%, transparent)'
+      // }}
     >
       <div className="flex gap-2 py-3 px-[calc(50%-2.5rem)]">
         {items.map((item, i) => (
