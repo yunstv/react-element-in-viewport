@@ -1,14 +1,25 @@
 import * as React from 'react';
+import { trajectoryMap } from '../data/trajectories';
 
-const TileSurface: React.FC<{ name: string; bg: string }> = ({ name, bg }) => (
-  <div className="relative w-full h-full">
-    <div className="absolute inset-0" style={{ background: bg }} />
+const TileSurface: React.FC<{ name: string; bg: string }> = ({ name, bg }) => {
+  const trajectory = trajectoryMap[name];
+  return (
+    <div className="relative w-full h-full">
+      <div className="absolute inset-0" style={{ background: bg }} />
 
-    <div className="absolute inset-x-1.5 bottom-1.5 px-2 py-1 rounded bg-black/55 text-white text-sm font-mono font-semibold text-center truncate drop-shadow">
-      {name}
+      <div className="absolute inset-0 flex flex-col p-1.5 gap-1.5">
+        {trajectory && (
+          <div className="flex-1 flex items-center justify-center text-center text-white/90 text-sm leading-snug px-2 drop-shadow">
+            {trajectory}
+          </div>
+        )}
+        <div className="px-2 py-1 rounded bg-black/55 text-white text-sm font-mono font-semibold text-center truncate drop-shadow">
+          {name}
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const GalleryTile: React.FC<{
   name: string;
