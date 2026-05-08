@@ -51,6 +51,9 @@ const writeMask = (
 export const Backdrop: React.FC = () => {
   const loadLayerRefs = React.useRef<(HTMLDivElement | null)[]>([]);
   const holeRef = React.useRef<HTMLDivElement | null>(null);
+  // While the load mask is still expanding, the dark veil hides the gallery
+  // but tiles below remain clickable. Lock them out until interactive mode.
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     let raf = 0;
@@ -141,6 +144,7 @@ export const Backdrop: React.FC = () => {
       }
       if (holeRef.current) holeRef.current.style.opacity = '1';
       switched = true;
+      setLoading(false);
     };
 
     const tickHole = (now: number, vw: number, vh: number) => {
@@ -206,6 +210,9 @@ export const Backdrop: React.FC = () => {
 
   return (
     <>
+      {loading && (
+        <style>{`[data-gallery-tile]{pointer-events:none}`}</style>
+      )}
       {LAYERS.map((cfg, i) => (
         <div
           key={`load-${i}`}
