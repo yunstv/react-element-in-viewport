@@ -1,5 +1,6 @@
 {
   "name": "react-element-in-viewport-example",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "browserslist": "> 0.5%, last 2 versions, not dead",
@@ -13,7 +14,7 @@
     "react": "^19.2.6",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^19.2.6",
-    "react-element-in-viewport": "^1.0.13"
+    "react-element-in-viewport": "^2.0.0"
   },
   "alias": {
     "react": "react",
