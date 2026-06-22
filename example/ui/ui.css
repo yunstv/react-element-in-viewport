@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+@source './**/*.{vue,ts}';
+@source '../ui.html';
+
+@theme {
+  --color-brand: #1c58f6;
+  --color-brand-soft: #257ef3;
+  --color-ink: #222222;
+  --color-ink-soft: #333333;
+  --color-muted: #666666;
+  --color-faint: #999999;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #333333;
+    font-family:
+      'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #app {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+/* Scroll-reveal: pairs with the v-reveal directive (the theme of this repo:
+   element-in-viewport triggers animation). */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(36px);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Product card cross-fade when switching tabs */
+.card-fade-enter-active,
+.card-fade-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.card-fade-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.card-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}

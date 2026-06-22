@@ -3,6 +3,9 @@
     "transformers": {
       "*.{ts,tsx}": [
         "@parcel/transformer-typescript-tsc"
+      ],
+      "*.vue": [
+        "@parcel/transformer-vue"
       ]
     }
 }

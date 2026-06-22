@@ -6,15 +6,16 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": "index.html",
   "scripts": {
-    "start": "parcel --no-hmr",
-    "build": "parcel build index.html --public-url ./",
+    "start": "parcel index.html ui.html --no-hmr",
+    "build": "parcel build index.html ui.html --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "react": "^19.2.6",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^19.2.6",
-    "react-element-in-viewport": "^2.0.0"
+    "react-element-in-viewport": "^2.0.0",
+    "vue": "^3.5"
   },
   "alias": {
     "react": "react",
@@ -26,6 +27,7 @@
     "@parcel/config-default": "^2.16.4",
     "@parcel/transformer-sass": "^2.16.4",
     "@parcel/transformer-typescript-tsc": "^2.16.4",
+    "@parcel/transformer-vue": "^2.16.4",
     "@tailwindcss/postcss": "^4.2.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
