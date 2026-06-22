@@ -69,13 +69,13 @@ const columns = [
 
         <!-- link columns -->
         <div class="grid flex-1 grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:flex lg:justify-between lg:gap-[86px]">
-          <div v-for="col in columns" :key="col.title" class="flex flex-col gap-6">
-            <p class="text-base font-medium text-white">{{ col.title }}</p>
+          <div v-for="col in columns" :key="col.title" class="flex shrink-0 flex-col gap-6">
+            <p class="whitespace-nowrap text-base font-medium text-white">{{ col.title }}</p>
             <ul class="flex flex-col gap-2">
               <li v-for="item in col.items" :key="item">
                 <a
                   href="#"
-                  class="text-xs leading-6 text-white/70 transition-colors hover:text-white"
+                  class="whitespace-nowrap text-xs leading-6 text-white/70 transition-colors hover:text-white"
                   >{{ item }}</a
                 >
               </li>
