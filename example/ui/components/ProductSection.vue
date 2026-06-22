@@ -70,21 +70,24 @@ const card = computed(() => tabs[props.active]);
       <SectionTitle title="服务产品" subtitle="Service product" />
 
       <!-- category tabs -->
-      <div class="mt-12 flex flex-wrap justify-center gap-4 lg:gap-8" v-reveal>
+      <div
+        class="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-12 lg:flex lg:flex-wrap lg:justify-center lg:gap-8"
+        v-reveal
+      >
         <button
           v-for="(tab, i) in tabs"
           :key="tab.label"
           type="button"
           @click="emit('update:active', i)"
-          class="flex h-[60px] flex-1 items-center justify-center gap-1.5 rounded-md border px-6 text-lg transition-all lg:min-w-[275px] lg:flex-none"
+          class="flex h-[60px] items-center justify-center gap-1.5 rounded-md border px-6 text-lg transition-all lg:min-w-[275px] lg:flex-none"
           :class="
             active === i
               ? 'border-transparent bg-brand font-medium text-white shadow-[0_8px_10px_rgba(63,92,207,0.1)]'
               : 'border-[#e4e4e4] bg-white text-ink-soft hover:border-brand/40'
           "
         >
-          <img v-if="tab.icon" :src="tab.icon" alt="" class="size-6" />
-          <span>{{ tab.label }}</span>
+          <img v-if="tab.icon" :src="tab.icon" alt="" class="size-6 shrink-0" />
+          <span class="whitespace-nowrap">{{ tab.label }}</span>
         </button>
       </div>
 
